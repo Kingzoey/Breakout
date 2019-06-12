@@ -6,7 +6,7 @@
 #pragma execution_character_set("utf-8")
 using namespace CocosDenshion;
 USING_NS_CC;
-
+  
 void MenuSence::setPhysicsWorld(PhysicsWorld* world) { m_world = world; }
 
 Scene* MenuSence::createScene()

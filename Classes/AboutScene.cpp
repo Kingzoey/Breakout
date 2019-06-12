@@ -7,7 +7,7 @@
 #pragma execution_character_set("utf-8")
 using namespace std;
 USING_NS_CC;
-
+ 
 Scene* About::createScene()
 {
 	auto scene = Scene::create();
