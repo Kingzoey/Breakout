@@ -6,7 +6,7 @@
 #pragma execution_character_set("utf-8")
 using namespace CocosDenshion;
 USING_NS_CC;
-  
+
 void MenuSence::setPhysicsWorld(PhysicsWorld* world) { m_world = world; }
 
 Scene* MenuSence::createScene()
@@ -22,11 +22,11 @@ Scene* MenuSence::createScene()
 
 //预加载及播放背景音乐
 void MenuSence::ppreloadMusic() {
-	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("music/bgMusic.mp3");
+	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("music/beginmusic.mp3");
 }
 
 void MenuSence::pplayBgm() {
-	SimpleAudioEngine::getInstance()->playBackgroundMusic("music/bgMusic.mp3", true);
+	SimpleAudioEngine::getInstance()->playBackgroundMusic("music/beginmusic.mp3", true);
 }
 // on "init" you need to initialize your instance
 bool MenuSence::init(PhysicsWorld* world)
@@ -64,19 +64,6 @@ bool MenuSence::init(PhysicsWorld* world)
 	menuu->setPosition(Vec2::ZERO);
 	this->addChild(menuu, 1);
 
-//小组成员名字
-	auto ss1 = Label::createWithSystemFont("李佳", "Microsoft Yahei", 25);
-	ss1->setPosition(Vec2(visibleSize.width / 2 + origin.x + 250, visibleSize.height / 2 + origin.y + 200));
-	this->addChild(ss1, 0);
-	auto ss2 = Label::createWithSystemFont("李辉旭", "Microsoft Yahei", 25);
-	ss2->setPosition(Vec2(visibleSize.width / 2 + origin.x + 250, visibleSize.height / 2 + origin.y + 100));
-	this->addChild(ss2, 0);
-	auto ss3 = Label::createWithSystemFont("李果", "Microsoft Yahei", 25);
-	ss3->setPosition(Vec2(visibleSize.width / 2 + origin.x + 250, visibleSize.height / 2 + origin.y ));
-	this->addChild(ss3, 0);
-	auto ss4 = Label::createWithSystemFont("李伟杜", "Microsoft Yahei", 25);
-	ss4->setPosition(Vec2(visibleSize.width / 2 + origin.x + 250, visibleSize.height / 2 + origin.y -100));
-	this->addChild(ss4, 0);
 //开始按钮
 	auto startItem = MenuItemImage::create(
 		"play.png",
@@ -88,19 +75,6 @@ bool MenuSence::init(PhysicsWorld* world)
 	auto menu = Menu::create(startItem, NULL);
 	menu->setPosition(Vec2::ZERO);
 	this->addChild(menu, 2);
-//提示按钮
-	auto startItem1 = MenuItemImage::create(
-		"about.png",
-		"aboutt.png",
-		CC_CALLBACK_1(MenuSence::aboutMenuCallback, this));
-
-	startItem1->setPosition(Vec2(visibleSize.width / 2 + origin.x -10 , visibleSize.height / 8 * 5 + origin.y - 220));
-	startItem1->setScale(1.5);
-
-
-	auto menu1 = Menu::create(startItem1, NULL);
-	menu1->setPosition(Vec2::ZERO);
-	this->addChild(menu1, 2);
 
 	ppreloadMusic();
 	pplayBgm();
@@ -122,11 +96,7 @@ void MenuSence::startMenuCallback(cocos2d::Ref * pSender)
 {
 	CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(1.5, Breakout::createScene()));
 }
-//跳转到提示页面
-void MenuSence::aboutMenuCallback(cocos2d::Ref * pSender)
-{
-	CCDirector::sharedDirector()->replaceScene(CCTransitionFade::create(1.5f, About::createScene()));
-}
+
 //退出游戏
 void MenuSence::menuCloseCallback(Ref* pSender)
 {

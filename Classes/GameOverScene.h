@@ -1,6 +1,6 @@
 #ifndef __GAMEOVERSCENE_H__
 #define __GAMEOVERSCENE_H__
- 
+
 #include "ui/CocosGUI.h"
 #include "network/HttpClient.h"
 #include <string>
@@ -23,17 +23,6 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(GameOverScene);
 
-private:
-//创建六个人
-	Sprite* mouse;
-	Sprite* mouse1;
-	Sprite* mouse2;
-	Sprite* mouse3;
-	Sprite* mouse4;
-	Sprite* mouse5;
-	float visibleHeight;
-	float visibleWidth;
-	TextField * textField;
-};
+
 
 #endif // __HELLOWORLD_SCENE_H__

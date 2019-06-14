@@ -13,7 +13,7 @@ using std::regex_match;
 using std::cmatch;
 using namespace rapidjson;
 using namespace CocosDenshion;
-USING_NS_CC; 
+USING_NS_CC;
 
 
 Scene* GameOverScene::createScene()
@@ -101,54 +101,6 @@ bool GameOverScene::init()
 	menu1->setPosition(Vec2::ZERO);
 	addChild(menu1);*/
 
-	Size visibleSizee = Director::getInstance()->getVisibleSize();
-//跳舞的动画
-	mouse = Sprite::create("grossini.png");
-	mouse->setPosition(Vec2(visibleSizee.width / 2 -180, 120));
-	Animation* an = Animation::create();
-		an->addSpriteFrameWithFileName("grossini_dance_1.png");
-		an->addSpriteFrameWithFileName("grossini_dance_2.png");
-		an->addSpriteFrameWithFileName("grossini_dance_3.png");
-		an->addSpriteFrameWithFileName("grossini_dance_4.png");
-		an->addSpriteFrameWithFileName("grossini_dance_5.png");
-		an->addSpriteFrameWithFileName("grossini_dance_6.png");
-		an->addSpriteFrameWithFileName("grossini_dance_7.png");
-		an->addSpriteFrameWithFileName("grossini_dance_8.png");
-		an->addSpriteFrameWithFileName("grossini_dance_9.png");
-		an->addSpriteFrameWithFileName("grossini_dance_10.png");
-		an->addSpriteFrameWithFileName("grossini_dance_11.png");
-		an->addSpriteFrameWithFileName("grossini_dance_12.png");
-		an->addSpriteFrameWithFileName("grossini_dance_13.png");
-		an->addSpriteFrameWithFileName("grossini_dance_14.png");
-	an->setDelayPerUnit(0.1f);
-	an->setRestoreOriginalFrame(true);
-	mouse->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse);
-//一共六个人累成金字塔跳舞
-	mouse1 = Sprite::create("grossini.png");
-	mouse1->setPosition(Vec2(visibleSizee.width / 2 - 230, 120));
-	mouse1->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse1);
-
-	mouse2 = Sprite::create("grossini.png");
-	mouse2->setPosition(Vec2(visibleSizee.width / 2 - 205, 160));
-	mouse2->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse2);
-
-	mouse3 = Sprite::create("grossini.png");
-	mouse3->setPosition(Vec2(visibleSizee.width / 2 - 255, 80));
-	mouse3->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse3);
-
-	mouse4 = Sprite::create("grossini.png");
-	mouse4->setPosition(Vec2(visibleSizee.width / 2 - 205, 80));
-	mouse4->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse4);
-
-	mouse5 = Sprite::create("grossini.png");
-	mouse5->setPosition(Vec2(visibleSizee.width / 2 - 155, 80));
-	mouse5->runAction(RepeatForever::create(Animate::create(an)));
-	addChild(mouse5);
     return true;
 }
 void GameOverScene::menuCloseCallback(Ref* pSender) {
