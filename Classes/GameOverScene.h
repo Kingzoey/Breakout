@@ -23,6 +23,12 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(GameOverScene);
 
+private:
+//
 
+	float visibleHeight;
+	float visibleWidth;
+	TextField * textField;
+};
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -1,7 +1,7 @@
 #include "BreakoutScene.h"
 #include <string>
 #include "SimpleAudioEngine.h"
-#include "Box2D/Box2D.h"
+
 #include "GameOverScene.h"
 using namespace std;
 using namespace CocosDenshion;
@@ -22,7 +22,8 @@ Scene* Breakout::createScene()
 
 bool Breakout::init(PhysicsWorld* world) 
 {
-    if (!Layer::init()) {
+    if (!Layer::init()) 
+	{
         return false;
     }
 	Score = 0;
@@ -45,16 +46,17 @@ bool Breakout::init(PhysicsWorld* world)
 //预加载以及播放音乐
 void Breakout::preloadMusic() 
 {
-    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("music/backgroundmucic.mp3");
+    SimpleAudioEngine::getInstance()->preloadBackgroundMusic("music/backgroundmusic.mp3");
 }
 
 void Breakout::playBgm() 
 {
-    SimpleAudioEngine::getInstance()->playBackgroundMusic("music/backgroundmucic.mp3", true);
+    SimpleAudioEngine::getInstance()->playBackgroundMusic("music/backgroundmusic.mp3", true);
 }
 
-void Breakout::addBackground() //通过TMXTiledMap加载自己创作的砖块地图
+void Breakout::addBackground() 
 {
+//通过TMXTiledMap加载自己创作的砖块地图
 	TMXTiledMap* tmx = TMXTiledMap::create("map3.tmx");
 	tmx->setPosition(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y);
 	tmx->setAnchorPoint(Vec2(0.5, 0.5));
@@ -112,6 +114,19 @@ void Breakout::addBackground() //通过TMXTiledMap加载自己创作的砖块地图
 	edgeSp->getPhysicsBody()->setTag(3);
 	edgeSp->getPhysicsBody()->setContactTestBitmask(0x10);
 	this->addChild(edgeSp);
+
+	//背景图片
+	auto bgmap = Sprite::create("background1.jpg");
+	bgmap->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
+	Size mywinsize = Director::getInstance()->getWinSize();
+	float winw = mywinsize.width; //获取屏幕宽度
+	float winh = mywinsize.height;//获取屏幕高度
+	float spx = bgmap->getTextureRect().getMaxX();
+	float spy = bgmap->getTextureRect().getMaxY();
+	bgmap->setScaleX(winw / spx); //设置精灵宽度缩放比例
+	bgmap->setScaleY(winh / spy);
+	this->addChild(bgmap, -1);
+	
 //底下的边界
 	auto deadSp = Sprite::create("deadbar.png");
 	deadSp->setAnchorPoint(Vec2(0.5, 0.5));
@@ -135,8 +150,10 @@ void Breakout::addBackground() //通过TMXTiledMap加载自己创作的砖块地图
 	player->getPhysicsBody()->setContactTestBitmask(0x10);
 	addChild(player);
 }
+
 //球
-void Breakout::addball() {
+void Breakout::addball() 
+{
 	ball = Sprite::create("ball.png");
 	ball->setPosition(origin.x + visibleSize.width / 2, origin.y + ball->getContentSize().height);
 	ball->setPhysicsBody(PhysicsBody::createCircle(ball->getContentSize().height / 2,PhysicsMaterial(0.0f,1.0f,0.0f)));
@@ -148,26 +165,48 @@ void Breakout::addball() {
 	addChild(ball);
 }
 
+
+
+void Breakout::addContactListener() 
+{
+	auto touchListener = EventListenerPhysicsContact::create();
+	touchListener->onContactBegin = CC_CALLBACK_1(Breakout::onConcactBegan, this);
+	_eventDispatcher->addEventListenerWithFixedPriority(touchListener, 1);
+}
+
+void Breakout::addKeyboardListener() 
+{
+    auto keboardListener = EventListenerKeyboard::create();
+    keboardListener->onKeyPressed = CC_CALLBACK_2(Breakout::onKeyPressed, this);
+    keboardListener->onKeyReleased = CC_CALLBACK_2(Breakout::onKeyReleased, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(keboardListener, this);
+}
 //通过Tag碰撞检测
 bool Breakout::onConcactBegan(PhysicsContact& contact) {
+	
+	
+
 	auto node1 = contact.getShapeA()->getBody();
 	auto node2 = contact.getShapeB()->getBody();
 	if (node1 && node2)
 	{
-		if ((node1->getTag() == 2 && node2->getTag() == 4) || (node1->getTag() == 4 && node2->getTag() == 2)){
-
-			if (node1->getTag() == 2 && node2->getTag() == 4){
+		if ((node1->getTag() == 2 && node2->getTag() == 4) || (node1->getTag() == 4 && node2->getTag() == 2))
+		{
+			if (node1->getTag() == 2 && node2->getTag() == 4)
+			{
 				node2->getNode()->removeFromParentAndCleanup(true);
 			}
-			else if (node1->getTag() == 4 && node2->getTag() == 2){
-				node1->getNode()->removeFromParentAndCleanup(true);
+			else if (node1->getTag() == 4 && node2->getTag() == 2)
+			{
+				node1->getNode()->removeFromParentAndCleanup(true);	
 			}
-			blocknum -= 1;
-			Score += 8;
+			blocknum = blocknum - 1;
+			Score = Score + 12;
 			CCString *strss = CCString::createWithFormat("Score : %d", Score);
 			std::string ScoreStrrr = strss->getCString();
 			ScoreLabel->setString(ScoreStrrr);
-			if (blocknum == 0){
+			if (blocknum == 0)
+			{
 				CCDirector::sharedDirector()->replaceScene(GameOverScene::createScene());
 			}
 		}
@@ -175,15 +214,17 @@ bool Breakout::onConcactBegan(PhysicsContact& contact) {
 			if (node1->getTag() == 2 && node2->getTag() == 9) {
 				node2->getNode()->removeFromParentAndCleanup(true);
 			}
-			else if (node1->getTag() == 9 && node2->getTag() == 2) {
+			else if (node1->getTag() == 9 && node2->getTag() == 2) 
+			{
 				node1->getNode()->removeFromParentAndCleanup(true);
 			}
 			blocknum -= 1;
-			Score += 100;
+			Score = Score + 50;
 			CCString *strsqw = CCString::createWithFormat("Score : %d", Score);
 			std::string ScoreStrqw = strsqw->getCString();
 			ScoreLabel->setString(ScoreStrqw);
-			if (blocknum == 0) {
+			if (blocknum == 0) 
+			{
 				CCDirector::sharedDirector()->replaceScene(GameOverScene::createScene());
 			}
 		}
@@ -198,10 +239,12 @@ bool Breakout::onConcactBegan(PhysicsContact& contact) {
 			CCDirector::sharedDirector()->replaceScene(GameOverScene::createScene());
 		}
 	}
+
 	return true;
 }
 //更新函数
-void Breakout::update(float f) {
+void Breakout::update(float f) 
+{
 	float velx = ball->getPhysicsBody()->getVelocity().x;
 	float vely = ball->getPhysicsBody()->getVelocity().y;
 	if (velx > 300 || vely > 300)
@@ -226,6 +269,7 @@ void Breakout::update(float f) {
 	{
 		ball->getPhysicsBody()->setVelocity(Vec2(velx, 3 * vely));
 	}
+	
 }
 //键盘按下
 void Breakout::onKeyPressed(EventKeyboard::KeyCode code, Event* event) {

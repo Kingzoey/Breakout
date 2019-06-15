@@ -1,8 +1,8 @@
 ﻿#include "MenuSence.h"
 #include "BreakoutScene.h"
 #include "SimpleAudioEngine.h"
-#include "Box2D/Box2D.h"
-#include "AboutScene.h"
+
+
 #pragma execution_character_set("utf-8")
 using namespace CocosDenshion;
 USING_NS_CC;
@@ -21,11 +21,13 @@ Scene* MenuSence::createScene()
 }
 
 //预加载及播放背景音乐
-void MenuSence::ppreloadMusic() {
+void MenuSence::ppreloadMusic() 
+{
 	SimpleAudioEngine::getInstance()->preloadBackgroundMusic("music/beginmusic.mp3");
 }
 
-void MenuSence::pplayBgm() {
+void MenuSence::pplayBgm() 
+{
 	SimpleAudioEngine::getInstance()->playBackgroundMusic("music/beginmusic.mp3", true);
 }
 // on "init" you need to initialize your instance
@@ -41,7 +43,7 @@ bool MenuSence::init(PhysicsWorld* world)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	//背景图片
-	auto bgmap = Sprite::create("1.jpg");
+	auto bgmap = Sprite::create("Cover.jpg");
 	bgmap->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	Size mywinsize = Director::getInstance()->getWinSize();
 	float winw = mywinsize.width; //获取屏幕宽度
@@ -64,6 +66,7 @@ bool MenuSence::init(PhysicsWorld* world)
 	menuu->setPosition(Vec2::ZERO);
 	this->addChild(menuu, 1);
 
+
 //开始按钮
 	auto startItem = MenuItemImage::create(
 		"play.png",
@@ -75,6 +78,7 @@ bool MenuSence::init(PhysicsWorld* world)
 	auto menu = Menu::create(startItem, NULL);
 	menu->setPosition(Vec2::ZERO);
 	this->addChild(menu, 2);
+
 
 	ppreloadMusic();
 	pplayBgm();
