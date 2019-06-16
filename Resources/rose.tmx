@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="16" height="30" tilewidth="40" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="125">
+ <tileset firstgid="1" name="bgd" tilewidth="40" tileheight="16" tilecount="0" columns="16">
+  <image source="Resources/bgd.png" width="640" height="480"/>
+ </tileset>
+ <tileset firstgid="1" name="bgd" tilewidth="40" tileheight="16" tilecount="0" columns="16">
+  <image source="Resources/bgd.png" width="640" height="480"/>
+ </tileset>
+ <tileset firstgid="1" name="wall" tilewidth="40" tileheight="16" tilecount="0" columns="1">
+  <image source="Resources/wall.png" width="40" height="16"/>
+ </tileset>
+ <tileset firstgid="1" name="block0" tilewidth="40" tileheight="16" tilecount="0" columns="1">
+  <image source="Resources/block0.png" width="40" height="16"/>
+ </tileset>
+ <layer id="1" name="块层 1" width="16" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGAb0BAAeAAAE=
+  </data>
+ </layer>
+ <objectgroup id="2" name="objects">
+  <object id="19" gid="1" x="320" y="224" width="40" height="16"/>
+  <object id="20" gid="1" x="240" y="82" width="40" height="16"/>
+  <object id="21" gid="1" x="199" y="80" width="40" height="16"/>
+  <object id="26" gid="1" x="280" y="82" width="40" height="16"/>
+  <object id="27" gid="1" x="321" y="81" width="40" height="16"/>
+  <object id="28" gid="1" x="198" y="97" width="40" height="16"/>
+  <object id="29" gid="1" x="199" y="113" width="40" height="16"/>
+  <object id="30" gid="1" x="120" y="176" width="40" height="16"/>
+  <object id="31" gid="1" x="200" y="240" width="40" height="16"/>
+  <object id="32" gid="1" x="201" y="208" width="40" height="16"/>
+  <object id="33" gid="1" x="199" y="146" width="40" height="16"/>
+  <object id="34" gid="1" x="161" y="190" width="40" height="16"/>
+  <object id="43" gid="1" x="320" y="240" width="40" height="16"/>
+  <object id="44" gid="1" x="319" y="286" width="40" height="16"/>
+  <object id="45" gid="1" x="359" y="256" width="40" height="16"/>
+  <object id="46" gid="1" x="440" y="224" width="40" height="16"/>
+  <object id="47" gid="1" x="160" y="174" width="40" height="16"/>
+  <object id="48" gid="1" x="279" y="256" width="40" height="16"/>
+  <object id="49" gid="1" x="200" y="223" width="40" height="16"/>
+  <object id="50" gid="1" x="199" y="129" width="40" height="16"/>
+  <object id="51" gid="1" x="519" y="305" width="40" height="16"/>
+  <object id="52" gid="1" x="437" y="97" width="40" height="16"/>
+  <object id="53" gid="1" x="439" y="131" width="40" height="16"/>
+  <object id="55" gid="1" x="520" y="176" width="40" height="16"/>
+  <object id="56" gid="1" x="480" y="176" width="40" height="16"/>
+  <object id="57" gid="1" x="361" y="80" width="40" height="16"/>
+  <object id="59" gid="1" x="401" y="81" width="40" height="16"/>
+  <object id="60" gid="1" x="359" y="223" width="40" height="16"/>
+  <object id="61" gid="1" x="439" y="80" width="40" height="16"/>
+  <object id="62" gid="1" x="440" y="148" width="40" height="16"/>
+  <object id="64" gid="1" x="79" y="176" width="40" height="16"/>
+  <object id="65" gid="1" x="80" y="273" width="40" height="16"/>
+  <object id="66" gid="1" x="120" y="274" width="40" height="16"/>
+  <object id="68" gid="1" x="119" y="290" width="40" height="16"/>
+  <object id="69" gid="1" x="80" y="290" width="40" height="16"/>
+  <object id="70" gid="1" x="119" y="306" width="40" height="16"/>
+  <object id="72" gid="1" x="241" y="320" width="40" height="16"/>
+  <object id="74" gid="1" x="319" y="353" width="40" height="16"/>
+  <object id="75" gid="1" x="321" y="320" width="40" height="16"/>
+  <object id="76" gid="1" x="119" y="322" width="40" height="16"/>
+  <object id="77" gid="1" x="519" y="319" width="40" height="16"/>
+  <object id="78" gid="1" x="200" y="257" width="40" height="16"/>
+  <object id="79" gid="1" x="241" y="225" width="40" height="16"/>
+  <object id="80" gid="1" x="200" y="159" width="40" height="16"/>
+  <object id="81" gid="1" x="399" y="224" width="40" height="16"/>
+  <object id="82" gid="1" x="320" y="256" width="40" height="16"/>
+  <object id="84" gid="1" x="160" y="321" width="40" height="16"/>
+  <object id="85" gid="1" x="200" y="320" width="40" height="16"/>
+  <object id="86" gid="1" x="81" y="306" width="40" height="16"/>
+  <object id="88" gid="1" x="440" y="240" width="40" height="16"/>
+  <object id="89" gid="1" x="358" y="321" width="40" height="16"/>
+  <object id="91" gid="1" x="281" y="319" width="40" height="16"/>
+  <object id="92" gid="1" x="399" y="322" width="40" height="16"/>
+  <object id="94" gid="1" x="480" y="321" width="40" height="16"/>
+  <object id="95" gid="1" x="359" y="240" width="40" height="16"/>
+  <object id="96" gid="1" x="319" y="303" width="40" height="16"/>
+  <object id="97" gid="1" x="279" y="240" width="40" height="16"/>
+  <object id="98" gid="1" x="481" y="194" width="40" height="16"/>
+  <object id="99" gid="1" x="440" y="207" width="40" height="16"/>
+  <object id="102" gid="1" x="561" y="177" width="40" height="16"/>
+  <object id="104" gid="1" x="520" y="273" width="40" height="16"/>
+  <object id="105" gid="1" x="560" y="273" width="40" height="16"/>
+  <object id="106" gid="1" x="439" y="114" width="40" height="16"/>
+  <object id="107" gid="1" x="520" y="289" width="40" height="16"/>
+  <object id="108" gid="1" x="561" y="289" width="40" height="16"/>
+  <object id="109" gid="1" x="560" y="306" width="40" height="16"/>
+  <object id="111" gid="1" x="319" y="337" width="40" height="16"/>
+  <object id="112" gid="1" x="440" y="256" width="40" height="16"/>
+  <object id="116" gid="1" x="440" y="163" width="40" height="16"/>
+  <object id="118" gid="1" x="440" y="322" width="40" height="16"/>
+  <object id="120" gid="1" x="280" y="224" width="40" height="16"/>
+  <object id="123" x="79" y="221" width="40" height="16"/>
+ </objectgroup>
+</map>
