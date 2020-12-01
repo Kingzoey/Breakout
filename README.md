@@ -1,8 +1,3 @@
 # Breakout
 
-打砖块游戏
-
-组长：夏哲辉
-组员：陈永顺
-
-游戏选题：打砖块
+A little game made with cocos2D.
